@@ -1,0 +1,168 @@
+<div class="container-count">
+    <div class="divOne">
+        <img src="https://images.samsung.com/is/content/samsung/assets/pe/offer/new/home/final/beneficios/svg/ico-descuento.svg?$36_36_IMG$" alt="">
+        <div class="countdown">
+            <h1>¡SOLO X HORAS!</h1>
+            <ul>
+                <li><span id="days"></span>Dias</li>
+                <li><span id="hours"></span>HRS</li>
+                <li><span id="minutes"></span>MIN</li>
+                <li><span id="seconds"></span>SEG</li>
+            </ul>
+        </div> 
+    </div>
+    <div class="divTwo">
+        <img src="https://images.samsung.com/is/image/samsung/assets/pe/2023/test/3-prueba.png" alt="">
+        <div class="product">
+            <h1>Galaxy S22 Ultra 256GB</h1>
+            <p>Con el cupón <b>GALAXY</b></p>
+            <span class="price">S/5,099</span>
+            <p>Precio anterior: <span style="text-decoration: line-through;">S/5,999</span></p>
+            <a href="">Ver Oferta</a>
+        </div>
+    </div>
+</div> 
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    .container-count{
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        max-width: 1440px;
+        margin: 0 auto;
+        height: 220px;
+        background: url(https://images.samsung.com/is/image/samsung/assets/pe/2023/test/2Contador_VN_1440x220.gif);
+    }
+    .container-count .divOne{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container-count .divTwo{
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        overflow: hidden;
+        align-items: center;
+    }
+    .container-count .divOne img{
+        width: 30%;
+    }
+    .container-count .divTwo img{
+        height: 165px;
+        width: auto;
+        transition: all 0.2s ease-out 0s;
+    }
+    .container-count .divTwo img:hover{
+        transform: scale(1.1);
+    }
+    .container-count .divTwo .product{
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+    }
+    .container-count .divTwo .product h1{
+        margin: 0;
+        font-size: 18px;
+        color: white;
+        text-shadow: 1px 3px 5px #000000;
+    }
+    .container-count .divTwo .product p{
+        margin: 0;
+        font-size: 12px;
+    }
+    .container-count .divTwo .product span{
+        margin: 0;
+        font-weight: bold;
+    }
+    .container-count .divTwo .product .price{
+        margin: 0;
+        background: #fff;
+        width: fit-content;
+        padding: 4px 14px;
+        border-radius: 15px 0px;
+        color: #393173;
+        font-weight: 700;
+        font-size: 22px;
+    }
+    .container-count .divTwo .product a{
+        margin: 0;
+        font-weight: bold;
+        background: #fff;
+        color: #393173;
+        border-radius: 25px;
+        width: fit-content;
+        padding: 5px 12px;
+        text-decoration: none;
+    }
+    .container-count li  {
+        display: inline-block;
+        font-size: 14px;
+        list-style-type: none;
+        padding: 1em;
+        text-transform: uppercase;
+        background: #fff;
+        border-radius: 15px;
+        font-family: 'Poppins', sans-serif;
+        box-shadow: 0px 3px 4px -1px #393173;
+        width: 40px;
+    }
+    .container-count li span{
+        display: block;
+        font-size: 28px;
+    }
+    .countdown{
+        color: #333;
+        margin: 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+    .countdown h1{
+        margin: 0;
+        font-size: 24px;
+        font-family: 'Poppins', sans-serif;
+        color: #fff;
+        opacity: 1;
+        animation-name: pulse;
+        animation-duration: 3s;;
+        animation-iteration-count: infinite;
+    }
+    @keyframes pulse {
+        0%   {opacity: 1;}
+        25%  {opacity: 0;}
+        50%  {opacity: 1;}
+        75%  {opacity: 0;}
+        100% {opacity: 1;}
+    }
+    .countdown ul{
+        padding: 0;
+        margin: 0;
+    }
+
+    .container-count .divTwo .product h1{
+        margin: 0;
+    }
+</style>
+
+<script>
+    const second = 1000;
+    const minute = second * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+
+    let countDown = new Date('January 20, 2023 18:00:00').getTime(),
+    x = setInterval(function() {    
+        let now = new Date().getTime(),
+        distance = countDown - now;
+        document.getElementById('days').innerText = Math.floor(distance / (day)),
+        document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+        document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+
+    }, second);
+</script>
